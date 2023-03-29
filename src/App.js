@@ -19,7 +19,7 @@ function App() {
         </a>
         Kishanlal Choudhary
         Atharva Choudhari
-        Prasad dhondge
+        Aryan jasuja
       </header>
     </div>
   );
