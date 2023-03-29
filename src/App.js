@@ -18,7 +18,7 @@ function App() {
           Learn React
         </a>
         Kishanlal Choudhary
-        Prasad Dhondge
+        Atharva Choudhari
       </header>
     </div>
   );
