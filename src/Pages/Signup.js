@@ -2,23 +2,52 @@ import React, { useState } from "react";
 import { auth, db } from "../Config/firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
+import { useNavigate } from "react-router";
+import { useOutletContext } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-export default function Signup() {
-  const [newEmail, setNewEmail] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [newRole, setNewRole] = useState("");
+export default function Signup(props) {
+  const [signupDetails, setSignupDetails] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: "",
+  });
+  const [isAuth, setIsAuth] = useOutletContext();
 
   const usersCollectionRef = collection(db, "users");
 
-  const signupHandler = async () => {
+  const navigate = useNavigate();
+
+  const signupChangeHandler = (e) => {
+    const Value = e.target.value;
+    setSignupDetails({ ...signupDetails, [e.target.name]: Value });
+    console.log(signupDetails);
+  };
+
+  const signupHandler = async (e) => {
+    e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, newEmail, newPassword);
+      await createUserWithEmailAndPassword(
+        auth,
+        signupDetails.email,
+        signupDetails.password
+      );
       await addDoc(usersCollectionRef, {
-        email: newEmail,
-        password: newPassword,
-        role: newRole,
+        name: signupDetails.name,
+        email: signupDetails.email,
+        password: signupDetails.password,
+        role: signupDetails.role,
         userId: auth?.currentUser?.uid,
       });
+      setSignupDetails({
+        ...signupDetails,
+        name: "",
+        email: "",
+        password: "",
+        role: "",
+      });
+      navigate("/login");
     } catch (err) {
       console.log(err);
     }
@@ -26,23 +55,44 @@ export default function Signup() {
 
   return (
     <>
-      <h2>SignUp</h2>
-      <input
-        value={newEmail}
-        placeholder="Email..."
-        onChange={(e) => setNewEmail(e.target.value)}
-      />
-      <input
-        value={newPassword}
-        placeholder="Password..."
-        onChange={(e) => setNewPassword(e.target.value)}
-      />
-      <input
-        value={newRole}
-        placeholder="Ex. public"
-        onChange={(e) => setNewRole(e.target.value)}
-      />
-      <button onClick={signupHandler}>Login</button>
+      {isAuth === "false" ? (
+        <div className="signup">
+          <h2>SignUp</h2>
+          <form>
+            <input
+              type="text"
+              name="name"
+              value={signupDetails.name}
+              placeholder="Name..."
+              onChange={signupChangeHandler}
+            />
+            <input
+              type="email"
+              name="email"
+              value={signupDetails.email}
+              placeholder="Email..."
+              onChange={signupChangeHandler}
+            />
+            <input
+              type="password"
+              name="password"
+              value={signupDetails.password}
+              placeholder="Password..."
+              onChange={signupChangeHandler}
+            />
+            <input
+              type="text"
+              name="role"
+              value={signupDetails.role}
+              placeholder="Ex. public"
+              onChange={signupChangeHandler}
+            />
+            <button onClick={signupHandler}>Register</button>
+          </form>
+        </div>
+      ) : (
+        <Navigate to="/" replace={true} />
+      )}
     </>
   );
 }
