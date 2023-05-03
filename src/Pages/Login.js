@@ -37,27 +37,67 @@ export default function Login(props) {
   return (
     <>
       {isAuth === "false" ? (
-        <div className="login">
-          <h2>Login</h2>
-          <form>
-            <input
-              value={loginDetails.email}
-              placeholder="Email..."
-              name="email"
-              onChange={loginChangeHandler}
-            />
-            <input
-              value={loginDetails.password}
-              placeholder="Password..."
-              name="password"
-              onChange={loginChangeHandler}
-            />
-            <button type="submit" onClick={loginHandler}>
-              Login
-            </button>
-          </form>
+        <div className="container">
+          <div className="form-box">
+            <h1 id="title">Login</h1>
+            <form>
+              <div className="input-group">
+
+                <div className="input-field">
+                  <i className="fa-solid fa-envelope"></i>
+                  <input
+                    type="email"
+                    name="email"
+                    value={loginDetails.email}
+                    placeholder="Email..."
+                    onChange={loginChangeHandler}
+                  />
+                </div>
+
+                <div className="input-field">
+                  <i className="fa-solid fa-lock"></i>
+                  <input
+                    type="password"
+                    name="password"
+                    value={loginDetails.password}
+                    placeholder="Password..."
+                    onChange={loginChangeHandler}
+                  />
+                </div>
+                <p>
+                  {" "}
+                  Lost password? <a href="#">Click here</a>
+                </p>
+              </div>
+              <div className="btn-field">
+                <button type="submit" id="signupbtn" onClick={loginHandler}>
+                  Login
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       ) : (
+        // <div className="login">
+        //   <h2>Login</h2>
+        //   <form>
+        //     <input
+        //       value={loginDetails.email}
+        //       placeholder="Email..."
+        //       name="email"
+        //       onChange={loginChangeHandler}
+        //     />
+        //     <input
+        //       value={loginDetails.password}
+        //       placeholder="Password..."
+        //       name="password"
+        //       onChange={loginChangeHandler}
+        //     />
+        //     <button type="submit" onClick={loginHandler}>
+        //       Login
+        //     </button>
+        //   </form>
+        // </div>
         <Navigate to="/" replace={true} />
       )}
     </>

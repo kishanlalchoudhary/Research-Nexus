@@ -2,6 +2,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./Config/firebaseConfig";
+import "./App.css";
 
 // Layouts
 import RootLayout from "./Layouts/RootLayout";
