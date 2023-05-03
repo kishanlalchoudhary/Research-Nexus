@@ -2,6 +2,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./Config/firebaseConfig";
+import "./App.css";
 
 // Layouts
 import RootLayout from "./Layouts/RootLayout";
@@ -11,6 +12,7 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import NotFound from "./Pages/NotFound";
+import CreatePost from "./Pages/CreatePost";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -39,9 +41,12 @@ function App() {
               />
             }
           >
-            <Route index element={<Home />} />
+            <Route index element={<Home isAuth={isAuth}/>} />
+
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/createpost" element={<CreatePost />} />
+            
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
