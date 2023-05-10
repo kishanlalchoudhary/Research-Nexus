@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Config/firebaseConfig.js";
 import { useNavigate } from "react-router";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 export default function Login(props) {
@@ -42,7 +42,6 @@ export default function Login(props) {
             <h1 id="title">Login</h1>
             <form>
               <div className="input-group">
-
                 <div className="input-field">
                   <i className="fa-solid fa-envelope"></i>
                   <input
@@ -65,8 +64,7 @@ export default function Login(props) {
                   />
                 </div>
                 <p>
-                  {" "}
-                  Lost password? <a href="#">Click here</a>
+                  Don't have an account?<Link to="/signup">Sign up</Link>
                 </p>
               </div>
               <div className="btn-field">
@@ -78,26 +76,6 @@ export default function Login(props) {
           </div>
         </div>
       ) : (
-        // <div className="login">
-        //   <h2>Login</h2>
-        //   <form>
-        //     <input
-        //       value={loginDetails.email}
-        //       placeholder="Email..."
-        //       name="email"
-        //       onChange={loginChangeHandler}
-        //     />
-        //     <input
-        //       value={loginDetails.password}
-        //       placeholder="Password..."
-        //       name="password"
-        //       onChange={loginChangeHandler}
-        //     />
-        //     <button type="submit" onClick={loginHandler}>
-        //       Login
-        //     </button>
-        //   </form>
-        // </div>
         <Navigate to="/" replace={true} />
       )}
     </>

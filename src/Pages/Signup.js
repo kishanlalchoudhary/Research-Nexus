@@ -3,7 +3,7 @@ import { auth, db } from "../Config/firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 export default function Signup(props) {
@@ -99,61 +99,23 @@ export default function Signup(props) {
                     type="text"
                     name="role"
                     value={signupDetails.role}
-                    placeholder="Ex. public"
+                    placeholder="student or professor"
                     onChange={signupChangeHandler}
                   />
                 </div>
                 <p>
-                  {" "}
-                  Lost password? <a href="#">Click here</a>
+                  Already have an account?<Link to="/login">Login here</Link>
                 </p>
               </div>
               <div className="btn-field">
                 <button type="button" id="signupbtn" onClick={signupHandler}>
                   Sign Up
                 </button>
-                <button type="button" id="signinbtn" className="disable">
-                  Sign In
-                </button>
               </div>
             </form>
           </div>
         </div>
       ) : (
-        // <div className="container">
-        //   <h1 id="title">SignUp</h1>
-        //   <form>
-        //     <input
-        //       type="text"
-        //       name="name"
-        //       value={signupDetails.name}
-        //       placeholder="Name..."
-        //       onChange={signupChangeHandler}
-        //     />
-        // <input
-        //   type="email"
-        //   name="email"
-        //   value={signupDetails.email}
-        //   placeholder="Email..."
-        //   onChange={signupChangeHandler}
-        // />
-        // <input
-        //   type="password"
-        //   name="password"
-        //   value={signupDetails.password}
-        //   placeholder="Password..."
-        //   onChange={signupChangeHandler}
-        // />
-        // <input
-        //   type="text"
-        //   name="role"
-        //   value={signupDetails.role}
-        //   placeholder="Ex. public"
-        //   onChange={signupChangeHandler}
-        // />
-        //     <button onClick={signupHandler}>Register</button>
-        //   </form>
-        // </div>
         <Navigate to="/" replace={true} />
       )}
     </>
