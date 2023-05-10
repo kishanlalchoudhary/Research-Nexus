@@ -12,6 +12,8 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import NotFound from "./Pages/NotFound";
+import ShowBlogs from "./Pages/ShowBlogs";
+import CreateBlogs from "./Pages/CreateBlogs";
 
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
@@ -32,7 +34,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/"
+            exact path="/"
             element={
               <RootLayout
                 logoutHandler={logoutHandler}
@@ -41,8 +43,10 @@ function App() {
             }
           >
             <Route index element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/showblogs" element={<ShowBlogs />} />
+            <Route exact path="/createblogs" element={<CreateBlogs/>} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
