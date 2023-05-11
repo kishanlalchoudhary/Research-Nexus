@@ -5,6 +5,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router";
 import { Link, useOutletContext } from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import "../authentication.css";
 
 export default function Signup(props) {
   const [signupDetails, setSignupDetails] = useState({
@@ -13,52 +14,58 @@ export default function Signup(props) {
     password: "",
     role: "",
   });
-  const [isAuth, setIsAuth] = useOutletContext();
+  const [user, setUser] = useOutletContext();
+  const [errorMsg, setErrorMsg] = useState("");
 
   const usersCollectionRef = collection(db, "users");
 
   const navigate = useNavigate();
 
-  const signupChangeHandler = (e) => {
-    const Value = e.target.value;
-    setSignupDetails({ ...signupDetails, [e.target.name]: Value });
-    console.log(signupDetails);
-  };
-
   const signupHandler = async (e) => {
     e.preventDefault();
-    try {
-      await createUserWithEmailAndPassword(
-        auth,
-        signupDetails.email,
-        signupDetails.password
-      );
-      await addDoc(usersCollectionRef, {
-        name: signupDetails.name,
-        email: signupDetails.email,
-        password: signupDetails.password,
-        role: signupDetails.role,
-        userId: auth?.currentUser?.uid,
-      });
-      setSignupDetails({
-        ...signupDetails,
-        name: "",
-        email: "",
-        password: "",
-        role: "",
-      });
-      navigate("/login");
-    } catch (err) {
-      console.log(err);
+    if (
+      !signupDetails.email ||
+      !signupDetails.password ||
+      !signupDetails.name ||
+      !signupDetails.role
+    ) {
+      setErrorMsg("Fill all fields");
+      return;
+    } else {
+      try {
+        await createUserWithEmailAndPassword(
+          auth,
+          signupDetails.email,
+          signupDetails.password
+        );
+        await addDoc(usersCollectionRef, {
+          name: signupDetails.name,
+          email: signupDetails.email,
+          password: signupDetails.password,
+          role: signupDetails.role,
+          userId: auth?.currentUser?.uid,
+        });
+        setSignupDetails({
+          ...signupDetails,
+          name: "",
+          email: "",
+          password: "",
+          role: "",
+        });
+        navigate("/login");
+      } catch (err) {
+        setErrorMsg(err);
+      }
     }
   };
 
   return (
     <>
-      {isAuth === "false" ? (
+      {user === null ? (
         <div className="container">
           <div className="form-box">
             <h1 id="title">Sign Up</h1>
+            <h4 style={{ color: "red" }}>{errorMsg}</h4>
             <form>
               <div className="input-group">
                 <div className="input-field" id="namefield">
@@ -68,7 +75,7 @@ export default function Signup(props) {
                     name="name"
                     value={signupDetails.name}
                     placeholder="Name..."
-                    onChange={signupChangeHandler}
+                    onChange={(e)=>setSignupDetails((prev)=>({...prev, name : e.target.value}))}
                   />
                 </div>
 
@@ -79,7 +86,7 @@ export default function Signup(props) {
                     name="email"
                     value={signupDetails.email}
                     placeholder="Email..."
-                    onChange={signupChangeHandler}
+                    onChange={(e)=>setSignupDetails((prev)=>({...prev, email : e.target.value}))}
                   />
                 </div>
 
@@ -90,7 +97,7 @@ export default function Signup(props) {
                     name="password"
                     value={signupDetails.password}
                     placeholder="Password..."
-                    onChange={signupChangeHandler}
+                    onChange={(e)=>setSignupDetails((prev)=>({...prev, password : e.target.value}))}
                   />
                 </div>
                 <div className="input-field">
@@ -100,11 +107,11 @@ export default function Signup(props) {
                     name="role"
                     value={signupDetails.role}
                     placeholder="student or professor"
-                    onChange={signupChangeHandler}
+                    onChange={(e)=>setSignupDetails((prev)=>({...prev, role : e.target.value}))}
                   />
                 </div>
                 <p>
-                  Already have an account?<Link to="/login">Login here</Link>
+                  Already have an account? <Link to="/login">Login here</Link>
                 </p>
               </div>
               <div className="btn-field">

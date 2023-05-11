@@ -1,8 +1,7 @@
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { useState } from "react";
-import { signOut } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./Config/firebaseConfig";
-import "./App.css";
 
 // Layouts
 import RootLayout from "./Layouts/RootLayout";
@@ -16,29 +15,39 @@ import ShowBlogs from "./Pages/ShowBlogs";
 import CreateBlogs from "./Pages/CreateBlogs";
 
 function App() {
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
+  const [user, setUser] = useState(auth.currentUser);
 
   const logoutHandler = async () => {
     try {
       await signOut(auth);
-      localStorage.setItem("isAuth", "false");
-      setIsAuth("false");
+      setUser(auth.currentUser);
       window.location.pathname = "/login";
     } catch (err) {
       console.log(err);
     }
   };
 
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user => {
+      if (user){
+        setUser(user);
+      }else{
+        setUser(null);
+      }
+    }))
+  },[])
+
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route
-            exact path="/"
+            exact
+            path="/"
             element={
               <RootLayout
                 logoutHandler={logoutHandler}
-                authState={[isAuth, setIsAuth]}
+                user={[user, setUser]}
               />
             }
           >
@@ -46,7 +55,7 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/showblogs" element={<ShowBlogs />} />
-            <Route exact path="/createblogs" element={<CreateBlogs/>} />
+            <Route exact path="/createblogs" element={<CreateBlogs />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
