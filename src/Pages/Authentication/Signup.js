@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { auth, db } from "../Config/firebaseConfig";
+import { auth, db } from "../../Config/firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router";
 import { Link, useOutletContext } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import "../authentication.css";
+import "./authentication.css";
 
 export default function Signup(props) {
   const [signupDetails, setSignupDetails] = useState({

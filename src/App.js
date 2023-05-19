@@ -8,8 +8,8 @@ import RootLayout from "./Layouts/RootLayout";
 
 // Pages
 import Home from "./Pages/Home";
-import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
+import Login from "./Pages/Authentication/Login";
+import Signup from "./Pages/Authentication/Signup";
 import NotFound from "./Pages/NotFound";
 import ShowBlogs from "./Pages/ShowBlogs";
 import CreateBlogs from "./Pages/CreateBlogs";

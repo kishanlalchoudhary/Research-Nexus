@@ -4,11 +4,11 @@ import {
   setPersistence,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../Config/firebaseConfig.js";
+import { auth } from "../../Config/firebaseConfig.js";
 import { useNavigate } from "react-router";
 import { Link, useOutletContext } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import "../authentication.css";
+import "./authentication.css";
 
 export default function Login(props) {
   const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
