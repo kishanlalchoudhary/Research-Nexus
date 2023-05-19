@@ -1,0 +1,39 @@
+/* Contact us css starts */
+
+.contact-content input {
+    background-color: #f5f8fa;
+    border-color: #f5f8fa;
+    color: #5e6278;
+}
+
+.contact-content textarea {
+    background-color: #f5f8fa;
+    border-color: #f5f8fa;
+    color: #5e6278;
+}
+
+.contact-content input:focus {
+    box-shadow: none;
+}
+
+/* Contact us css ends */
+
+@media (max-width: 992px) {
+    .about-image {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-image {
+        width: 80vw;
+        height: 50vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-image {
+        width: 100vw;
+        height: 35vh;
+    }
+}

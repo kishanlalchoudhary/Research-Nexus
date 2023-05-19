@@ -5,7 +5,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { useNavigate } from "react-router";
 import { Link, useOutletContext } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import "./authentication.css";
+import style from "./authentication.module.css";
 
 export default function Signup(props) {
   const [signupDetails, setSignupDetails] = useState({
@@ -62,13 +62,13 @@ export default function Signup(props) {
   return (
     <>
       {user === null ? (
-        <div className="container">
-          <div className="form-box">
-            <h1 id="title">Sign Up</h1>
+        <div className={style.container}>
+          <div className={style.formBox}>
+            <h1 id={style.title}>Sign Up</h1>
             <h4 style={{ color: "red" }}>{errorMsg}</h4>
             <form>
-              <div className="input-group">
-                <div className="input-field" id="namefield">
+              <div className={style.inputGroup}>
+                <div className={style.inputField} id="namefield">
                   <i className="fa-solid fa-user-large"></i>
                   <input
                     type="text"
@@ -79,7 +79,7 @@ export default function Signup(props) {
                   />
                 </div>
 
-                <div className="input-field">
+                <div className={style.inputField}>
                   <i className="fa-solid fa-envelope"></i>
                   <input
                     type="email"
@@ -90,7 +90,7 @@ export default function Signup(props) {
                   />
                 </div>
 
-                <div className="input-field">
+                <div className={style.inputField}>
                   <i className="fa-solid fa-lock"></i>
                   <input
                     type="password"
@@ -100,7 +100,7 @@ export default function Signup(props) {
                     onChange={(e)=>setSignupDetails((prev)=>({...prev, password : e.target.value}))}
                   />
                 </div>
-                <div className="input-field">
+                <div className={style.inputField}>
                   <i className="fa-solid fa-lock"></i>
                   <input
                     type="text"
@@ -114,7 +114,7 @@ export default function Signup(props) {
                   Already have an account? <Link to="/login">Login here</Link>
                 </p>
               </div>
-              <div className="btn-field">
+              <div className={style.btnField}>
                 <button type="button" id="signupbtn" onClick={signupHandler}>
                   Sign Up
                 </button>

@@ -13,6 +13,7 @@ import Signup from "./Pages/Authentication/Signup";
 import NotFound from "./Pages/NotFound";
 import ShowBlogs from "./Pages/ShowBlogs";
 import CreateBlogs from "./Pages/CreateBlogs";
+import Dashboard from "./Layouts/Dashboard/Dashboard";
 
 function App() {
   const [user, setUser] = useState(auth.currentUser);
@@ -57,6 +58,7 @@ function App() {
             <Route exact path="/showblogs" element={<ShowBlogs />} />
             <Route exact path="/createblogs" element={<CreateBlogs />} />
           </Route>
+          <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./Contact.css"
 
 export default function Contact() {
   return (
@@ -8,7 +9,11 @@ export default function Contact() {
         <div class="container">
           <div class="row justify-content-center align-items-center">
             <div class="col-lg-5 col-12 about-image my-sm-5 my-2">
-              <img src="Images\Contact us.jpg" class="img-fluid" alt="" />
+              <img
+                src={require("../../Images/contact-us.jpg")}
+                class="img-fluid"
+                alt=""
+              />
             </div>
             <div class="col-lg-7 col-12 about-content my-4">
               <h1 class="text-uppercase fw-bolder text-center fs-1">

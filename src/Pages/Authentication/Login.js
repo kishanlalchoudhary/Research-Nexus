@@ -8,7 +8,7 @@ import { auth } from "../../Config/firebaseConfig.js";
 import { useNavigate } from "react-router";
 import { Link, useOutletContext } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import "./authentication.css";
+import style from "./authentication.module.css";
 
 export default function Login(props) {
   const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
@@ -41,13 +41,13 @@ export default function Login(props) {
   return (
     <>
       {user === null ? (
-        <div className="container">
-          <div className="form-box">
-            <h1 id="title">Login</h1>
+        <div className={style.container}>
+          <div className={style.formBox}>
+            <h1 id={style.title}>Login</h1>
             <h4 style={{ color: "red" }}>{errorMsg}</h4>
             <form>
-              <div className="input-group">
-                <div className="input-field">
+              <div className={style.inputGroup}>
+                <div className={style.inputField}>
                   <i className="fa-solid fa-envelope"></i>
                   <input
                     type="email"
@@ -63,7 +63,7 @@ export default function Login(props) {
                   />
                 </div>
 
-                <div className="input-field">
+                <div className={style.inputField}>
                   <i className="fa-solid fa-lock"></i>
                   <input
                     type="password"
@@ -82,7 +82,7 @@ export default function Login(props) {
                   Don't have an account? <Link to="/signup">Sign up</Link>
                 </p>
               </div>
-              <div className="btn-field">
+              <div className={style.btnField}>
                 <button type="submit" id="signupbtn" onClick={loginHandler}>
                   Login
                 </button>

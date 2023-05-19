@@ -1,22 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Team.css";
+import style from "./Team.module.css";
 
 export default function Team() {
   return (
     <>
-      <div className="heading">
-        <h1>Our Team</h1>
-      </div>
-      <div className="row">
-        <div className="column">
-          <div className="card">
-            <div className="img-container">
-              <img src={require("../../Images/kishanlal.jpeg")} alt="kishanlal-profile" />
+      <div className={style.row}>
+        <div className={style.column}>
+          <div className={style.card}>
+            <div className={style.imgContainer}>
+              <img
+                src={require("../../Images/kishanlal.jpeg")}
+                alt="kishanlal-profile"
+              />
             </div>
             <h3>Kishanlal Choudhary</h3>
             <p>Front End Developer</p>
-            <div className="icons">
+            <div className={style.icons}>
               <Link to="https://github.com/kishanlalchoudhary">
                 <ion-icon name="logo-github"></ion-icon>
               </Link>
@@ -29,9 +29,9 @@ export default function Team() {
             </div>
           </div>
         </div>
-        <div className="column">
-          <div className="card">
-            <div className="img-container">
+        <div className={style.column}>
+          <div className={style.card}>
+            <div className={style.imgContainer}>
               <img
                 src={require("../../Images/aryan.jpeg")}
                 alt="aryan-profile"
@@ -39,7 +39,7 @@ export default function Team() {
             </div>
             <h3>Aryan Jasuja</h3>
             <p>Front End Developer</p>
-            <div className="icons">
+            <div className={style.icons}>
               <Link to="https://github.com/aryanjasuja4">
                 <ion-icon name="logo-github"></ion-icon>
               </Link>
@@ -52,9 +52,9 @@ export default function Team() {
             </div>
           </div>
         </div>
-        <div className="column">
-          <div className="card">
-            <div className="img-container">
+        <div className={style.column}>
+          <div className={style.card}>
+            <div className={style.imgContainer}>
               <img
                 src={require("../../Images/atharva.jpeg")}
                 alt="atharva-profile"
@@ -62,7 +62,7 @@ export default function Team() {
             </div>
             <h3>Atharva Choudhari</h3>
             <p>Back End Developer</p>
-            <div className="icons">
+            <div className={style.icons}>
               <Link to="https://github.com/atharvac1301">
                 <ion-icon name="logo-github"></ion-icon>
               </Link>
@@ -75,9 +75,9 @@ export default function Team() {
             </div>
           </div>
         </div>
-        <div className="column">
-          <div className="card">
-            <div className="img-container">
+        <div className={style.column}>
+          <div className={style.card}>
+            <div className={style.imgContainer}>
               <img
                 src={require("../../Images/prasad.png")}
                 alt="prasad-profile"
@@ -85,7 +85,7 @@ export default function Team() {
             </div>
             <h3>Prasad Dhondge</h3>
             <p>Back End Developer</p>
-            <div className="icons">
+            <div className={style.icons}>
               <Link to="https://github.com/prasad1073">
                 <ion-icon name="logo-github"></ion-icon>
               </Link>

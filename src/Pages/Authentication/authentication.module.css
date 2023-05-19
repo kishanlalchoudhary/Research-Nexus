@@ -1,7 +1,11 @@
+/* Importing fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Lato', sans-serif;
     box-sizing: border-box;
 
 }
@@ -17,7 +21,7 @@
     position: relative;
 }
 
-.form-box {
+.formBox {
     width: 90%;
     max-width: 450px;
     position: absolute;
@@ -29,14 +33,14 @@
     text-align: center;
 }
 
-.form-box h1 {
+.formBox h1 {
     font-size: 30px;
     margin-bottom: 40px;
     color: purple;
     position: relative;
 }
 
-.form-box h1::after {
+.formBox h1::after {
     content: '';
     width: 30px;
     height: 4px;
@@ -49,7 +53,7 @@
 
 }
 
-.input-field {
+.inputField {
     background: #eaeaea;
     margin: 15px 0;
     border-radius: 3px;
@@ -69,7 +73,7 @@ input {
     padding: 18px 15px;
 }
 
-.input-field i {
+.inputField i {
     margin-left: 15px;
     color: #999;
 }
@@ -84,13 +88,13 @@ form p a {
     color: #3c00a0;
 }
 
-.btn-field {
+.btnField {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
 
-.btn-field button {
+.btnField button {
     flex-basis: 48%;
     background-color: #3c00a0;
     color: #fff;
@@ -102,12 +106,12 @@ form p a {
     transition: background 1s;
 }
 
-.btn-field button.disable {
+.btnField button.disable {
     background: #eaeaea;
     color: #555;
 }
 
-.input-group p {
+.inputGroup p {
     padding-bottom: 30px;
 }
 
