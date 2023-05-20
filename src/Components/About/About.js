@@ -6,16 +6,16 @@ export default function About() {
   return (
     <>
       <div className="container-fluid aboutUSLanding">
-        <div class="container">
-          <div class="row justify-content-center align-items-center">
-            <div class="col-lg-5 col-12 about-image my-sm-5 my-2">
+        <div class="container box">
+          <div class="row justify-content-center align-items-center pt-5">
+            <div class="col-lg-5 col-12 about-image my-sm-3 my-2">
               <img
                 src={require("../../Images/about-us.png")}
                 class="img-fluid"
                 alt=""
               />
             </div>
-            <div class="col-lg-7 col-12 about-content my-4">
+            <div class="col-lg-7 col-12 about-content my-4 px-4">
               <h1 class="text-uppercase fw-bolder fs-1">About Us</h1>
               <p class="">
                 TempTravel being the the fast growing rental service of all

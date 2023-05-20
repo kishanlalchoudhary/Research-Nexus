@@ -4,7 +4,13 @@ import style from "./Team.module.css";
 
 export default function Team() {
   return (
-    <>
+    <div className={style.team}>
+      <h1
+        class="text-uppercase fw-bolder text-center my-2 my-md-5"
+        style={{ fontSize: "2.5em" }}
+      >
+        our team
+      </h1>
       <div className={style.row}>
         <div className={style.column}>
           <div className={style.card}>
@@ -14,7 +20,7 @@ export default function Team() {
                 alt="kishanlal-profile"
               />
             </div>
-            <h3>Kishanlal Choudhary</h3>
+            <h4>Kishanlal Choudhary</h4>
             <p>Front End Developer</p>
             <div className={style.icons}>
               <Link to="https://github.com/kishanlalchoudhary">
@@ -37,7 +43,7 @@ export default function Team() {
                 alt="aryan-profile"
               />
             </div>
-            <h3>Aryan Jasuja</h3>
+            <h4>Aryan Jasuja</h4>
             <p>Front End Developer</p>
             <div className={style.icons}>
               <Link to="https://github.com/aryanjasuja4">
@@ -60,7 +66,7 @@ export default function Team() {
                 alt="atharva-profile"
               />
             </div>
-            <h3>Atharva Choudhari</h3>
+            <h4>Atharva Choudhari</h4>
             <p>Back End Developer</p>
             <div className={style.icons}>
               <Link to="https://github.com/atharvac1301">
@@ -83,7 +89,7 @@ export default function Team() {
                 alt="prasad-profile"
               ></img>
             </div>
-            <h3>Prasad Dhondge</h3>
+            <h4>Prasad Dhondge</h4>
             <p>Back End Developer</p>
             <div className={style.icons}>
               <Link to="https://github.com/prasad1073">
@@ -99,6 +105,6 @@ export default function Team() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

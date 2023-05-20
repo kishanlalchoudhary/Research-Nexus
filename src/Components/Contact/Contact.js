@@ -6,17 +6,17 @@ export default function Contact() {
   return (
     <>
       <div class="container-fluid aboutUSLanding">
-        <div class="container">
-          <div class="row justify-content-center align-items-center">
-            <div class="col-lg-5 col-12 about-image my-sm-5 my-2">
+        <div class="container box pt-xs-5">
+          <div class="row justify-content-center align-items-center pt-5">
+            <div class="col-lg-5 col-12 about-image my-sm-3 my-2">
               <img
-                src={require("../../Images/contact-us.jpg")}
-                class="img-fluid"
+                src={require("../../Images/contact-us.png")}
+                class="img-fluid c-img"
                 alt=""
               />
             </div>
             <div class="col-lg-7 col-12 about-content my-4">
-              <h1 class="text-uppercase fw-bolder text-center fs-1">
+              <h1 class="text-uppercase fw-bolder text-center fs-1 mb-4">
                 Contact Us
               </h1>
               <div class="row contact-content m-sm-m m-2">

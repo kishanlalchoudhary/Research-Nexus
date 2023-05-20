@@ -22,12 +22,20 @@
     .about-image {
         height: 50vh;
     }
+
+    .c-img {
+        height: 140%;
+    }
 }
 
 @media (max-width: 768px) {
     .about-image {
         width: 80vw;
         height: 50vh;
+    }
+
+    .c-img {
+        height: 125%;
     }
 }
 
