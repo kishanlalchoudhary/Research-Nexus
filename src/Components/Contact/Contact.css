@@ -39,6 +39,24 @@
     }
 }
 
+.btnField {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btnField button {
+    flex-basis: 30%;
+    background-color: #3c00a0;
+    color: #fff;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 1s;
+}
+
 @media (max-width: 576px) {
     .about-image {
         width: 100vw;
