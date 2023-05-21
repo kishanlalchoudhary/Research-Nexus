@@ -187,3 +187,22 @@ body {
         margin-block: 50px;
     }
 }
+
+.role{
+    margin: 1rem 0 2rem 0 !important;
+}
+
+
+.card h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: calc(1.275rem + 0.3vw);
+}
+
+@media (min-width: 1200px) {
+    .card h4 {
+        font-size: 1.5rem;
+    }
+}

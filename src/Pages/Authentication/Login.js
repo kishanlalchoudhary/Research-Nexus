@@ -31,7 +31,7 @@ export default function Login(props) {
           loginDetails.password
         );
         setLoginDetails({ ...loginDetails, email: "", password: "" });
-        navigate("/");
+        navigate(-1, { replace: true });
       } catch (err) {
         setErrorMsg(err.message);
       }

@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import style from "./Team.module.css";
 
 export default function Team() {
   return (
     <div className={style.team}>
       <h1
-        class="text-uppercase fw-bolder text-center my-2 my-md-5"
+        className="text-uppercase fw-bolder text-center my-2 my-md-5"
         style={{ fontSize: "2.5em" }}
       >
         our team
@@ -21,7 +22,7 @@ export default function Team() {
               />
             </div>
             <h4>Kishanlal Choudhary</h4>
-            <p>Front End Developer</p>
+            <p className={style.role}>Front End Developer</p>
             <div className={style.icons}>
               <Link to="https://github.com/kishanlalchoudhary">
                 <ion-icon name="logo-github"></ion-icon>
@@ -44,7 +45,7 @@ export default function Team() {
               />
             </div>
             <h4>Aryan Jasuja</h4>
-            <p>Front End Developer</p>
+            <p className={style.role}>Front End Developer</p>
             <div className={style.icons}>
               <Link to="https://github.com/aryanjasuja4">
                 <ion-icon name="logo-github"></ion-icon>
@@ -67,7 +68,7 @@ export default function Team() {
               />
             </div>
             <h4>Atharva Choudhari</h4>
-            <p>Back End Developer</p>
+            <p className={style.role}>Back End Developer</p>
             <div className={style.icons}>
               <Link to="https://github.com/atharvac1301">
                 <ion-icon name="logo-github"></ion-icon>
@@ -90,7 +91,7 @@ export default function Team() {
               ></img>
             </div>
             <h4>Prasad Dhondge</h4>
-            <p>Back End Developer</p>
+            <p className={style.role}>Back End Developer</p>
             <div className={style.icons}>
               <Link to="https://github.com/prasad1073">
                 <ion-icon name="logo-github"></ion-icon>

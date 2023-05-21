@@ -11,8 +11,8 @@ import Home from "./Pages/Home";
 import Login from "./Pages/Authentication/Login";
 import Signup from "./Pages/Authentication/Signup";
 import NotFound from "./Pages/NotFound";
-import ShowBlogs from "./Pages/ShowBlogs";
-import CreateBlogs from "./Pages/CreateBlogs";
+// import ShowBlogs from "./Pages/ShowBlogs";
+// import CreateBlogs from "./Pages/CreateBlogs";
 import Dashboard from "./Layouts/Dashboard/Dashboard";
 
 function App() {
@@ -22,21 +22,21 @@ function App() {
     try {
       await signOut(auth);
       setUser(auth.currentUser);
-      window.location.pathname = "/login";
+      window.location.pathname = "/";
     } catch (err) {
       console.log(err);
     }
   };
 
-  useEffect(()=>{
-    onAuthStateChanged(auth, (user => {
-      if (user){
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
         setUser(user);
-      }else{
+      } else {
         setUser(null);
       }
-    }))
-  },[])
+    });
+  }, []);
 
   return (
     <>
@@ -55,10 +55,15 @@ function App() {
             <Route index element={<Home />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
-            <Route exact path="/showblogs" element={<ShowBlogs />} />
-            <Route exact path="/createblogs" element={<CreateBlogs />} />
+            {/* <Route exact path="/showblogs" element={<ShowBlogs />} />
+            <Route exact path="/createblogs" element={<CreateBlogs />} /> */}
           </Route>
-          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route
+            path="/dashboard"
+            element={
+              <Dashboard user={[user, setUser]} logoutHandler={logoutHandler} />
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

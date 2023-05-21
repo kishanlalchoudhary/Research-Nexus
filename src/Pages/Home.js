@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Components
 import Team from "../Components/Team/Team";
@@ -10,10 +12,10 @@ export default function Home(props) {
   return (
     <div>
       <h2>Home</h2>
-      <Link to="/login">Get Started</Link>
-      <About/>
-      <Team/>
-      <Contact/>
+      <Link to="/dashboard">Get Started</Link>
+      <About />
+      <Team />
+      <Contact />
     </div>
   );
 }
