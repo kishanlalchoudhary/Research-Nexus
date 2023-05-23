@@ -57,13 +57,18 @@ body {
 
 .sidebar.active {
     display: flex;
-    width: 220px;
+    width: 100%;
+    max-width: 300px;
     z-index: 50;
 }
 
 .logo {
     letter-spacing: 2px;
     margin-bottom: 50px;
+}
+
+.logo img{
+    width: 100%;
 }
 
 .menus {
@@ -85,6 +90,10 @@ body {
 }
 
 .menus a:hover {
+    color: var(--secondaryColor);
+}
+
+.menus .active{
     color: var(--secondaryColor);
 }
 
@@ -110,6 +119,20 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+}
+
+.logout{
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secondaryColor);
+    color: var(--fontColor);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: larger;
 }
 
 /* sidebar css ends */

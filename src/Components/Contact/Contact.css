@@ -31,6 +31,7 @@
     color: #fff;
     background-color: #4c50d3;
     cursor: pointer;
+    font-size: large;
 }
 
 .contactBtnSubmit:hover {

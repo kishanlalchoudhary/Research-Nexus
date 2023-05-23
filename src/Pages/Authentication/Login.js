@@ -79,7 +79,7 @@ export default function Login(props) {
                   />
                 </div>
                 <p>
-                  Don't have an account? <Link to="/signup">Sign up</Link>
+                  Don't have an account?<Link to="/signup">Sign up</Link>
                 </p>
               </div>
               <div className={style.btnField}>

@@ -28,7 +28,7 @@ export default function Contact() {
 
   return (
     <>
-      <div className="container-fluid aboutUSLanding">
+      <div className="container-fluid aboutUSLanding" id="contact">
         <div className="container box pt-xs-5">
           <div className="row justify-content-center align-items-center pt-5">
             <div className="col-lg-5 col-12 about-image my-sm-3 my-2">
