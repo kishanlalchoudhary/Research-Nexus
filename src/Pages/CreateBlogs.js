@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../Config/firebaseConfig";
 import { useNavigate } from "react-router-dom";
+import "../"
 
 export default function CreateBlogs({ isAuth }) {
   const [title, setTitle] = useState("");

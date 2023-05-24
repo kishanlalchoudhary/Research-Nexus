@@ -29,7 +29,7 @@ export default function DiscoverOpportunity(props) {
           <button className="btn-filter">CRM Analyst</button>
         </div>
       </div>
-      <div className="sort">
+      {/* <div className="sort">
         <p>Sort</p>
         <div className="sort-list">
           <select>
@@ -40,7 +40,7 @@ export default function DiscoverOpportunity(props) {
             <option value="4">Highest Paid</option>
           </select>
         </div>
-      </div>
+      </div> */}
       <div className="wrapper">
         <div className="cardCss">
           <div className="card-left blue-bg">

@@ -124,4 +124,7 @@ form p a {
     .formBox{
         padding: 20px;
     }
+    .roleField{
+        gap: 0.3rem;
+    }
 }
