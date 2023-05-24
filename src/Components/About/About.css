@@ -31,6 +31,7 @@
 
 .about-content p {
     font-size: larger;
+    text-align: justify;
 }
 
 .card-img {
