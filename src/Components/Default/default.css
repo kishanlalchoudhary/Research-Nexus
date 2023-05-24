@@ -31,7 +31,7 @@
 .navbar-body {
     display: flex;
     justify-content: space-between;
-    margin-block: 1.5rem;
+    margin-block: 1.25rem;
     margin-inline: 12px;
     padding: 0;
 }
@@ -44,7 +44,7 @@
     width: 100%;
 }
 
-.nav-login {
+.nav-btn {
     display: flex;
     gap: 0.5rem;
     justify-content: center;
@@ -52,20 +52,14 @@
     background-color: var(--secondaryColor);
     color: var(--fontColor);
     text-decoration: none;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: medium;
-}
-
-.nav-logout {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--secondaryColor);
-    color: var(--fontColor);
     border: none;
     border-radius: 5px;
     padding: 10px;
     font-size: medium;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background-color: var(--whiteColor);
+    color: var(--primaryColor);
 }

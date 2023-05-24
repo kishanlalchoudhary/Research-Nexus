@@ -20,13 +20,13 @@
 
 .box {
     background-color: var(--whiteColor);
+    padding-block: 50px;
 }
 
 .about-image {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 69vh;
 }
 
 .about-content p {

@@ -18,23 +18,26 @@ export default function About() {
             <div className="col-lg-7 col-12 about-content my-4 px-4">
               <h1 className="text-uppercase fw-bolder fs-1">About Us</h1>
               <p className="">
-                TempTravel being the the fast growing rental service of all
-                time, we here provide users with a very smooth process of
-                renting vehicles by following just a few steps.
+                Research Nexus is a premier online platform dedicated to
+                connecting aspiring researchers with exciting research
+                internship opportunities.
               </p>
-              <h2 className="fw-bold fs-2">Why TempTravel ?</h2>
+              <h2 className="fw-bold fs-2">Why Research Nexus ?</h2>
               <p>
-                We here at TempTravel have launched a user-friendly platform
-                with a vision of providing people with the basic transportation
-                needs ensuring that they save more money and time, which is the
-                current need of the hour. This platform not only provides rental
-                services but we also enable the local people to generate a
-                side-by-side income source.
+                We understand the importance of gaining practical experience in
+                the field of research, and our mission is to bridge the gap
+                between students and organizations offering valuable
+                internships.
               </p>
               <p>
-                Our mission is to make travelling more efficient and focus on
-                the overall development of humankind which we are sure to
-                accomplish!
+                At Research Nexus, we believe that internships play a crucial
+                role in shaping an individual's academic and professional
+                journey. They provide invaluable opportunities to apply
+                theoretical knowledge, develop practical skills, and gain a
+                deeper understanding of various research disciplines. Our
+                platform is designed to streamline the process of finding and
+                applying for research internships, making it easier for students
+                to embark on their research careers.
               </p>
             </div>
           </div>

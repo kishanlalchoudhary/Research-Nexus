@@ -15,11 +15,11 @@ export default function Navbar(props) {
           />
         </div>
         {user == null ? (
-          <Link className="nav-login" to="/login">
+          <Link className="nav-btn" to="/login">
             <ion-icon name="log-in-outline"></ion-icon>Login
           </Link>
         ) : (
-          <button className="nav-logout" onClick={props.logout}>
+          <button className="nav-btn" onClick={props.logout}>
             <ion-icon name="log-out-outline"></ion-icon>Logout
           </button>
         )}
