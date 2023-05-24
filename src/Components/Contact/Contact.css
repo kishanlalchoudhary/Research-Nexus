@@ -1,0 +1,70 @@
+/* Contact us css starts */
+
+.contact-content input {
+    background-color: #f5f8fa;
+    border-color: #f5f8fa;
+    color: #5e6278;
+}
+
+.contact-content textarea {
+    background-color: #f5f8fa;
+    border-color: #f5f8fa;
+    color: #5e6278;
+}
+
+.contact-content input:focus {
+    box-shadow: none;
+}
+
+.contactBtn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.contactBtnSubmit {
+    width: 150px;
+    border: none;
+    border-radius: 25px;
+    padding: 12px;
+    color: #fff;
+    background-color: #4c50d3;
+    cursor: pointer;
+    font-size: large;
+}
+
+.contactBtnSubmit:hover {
+    color: #1e1e1e;
+    background-color: #ffce00;
+}
+
+/* Contact us css ends */
+
+@media (max-width: 992px) {
+    .about-image {
+        height: 50vh;
+    }
+
+    .c-img {
+        height: 140%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-image {
+        width: 80vw;
+        height: 50vh;
+    }
+
+    .c-img {
+        height: 125%;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-image {
+        width: 100vw;
+        height: 35vh;
+    }
+}

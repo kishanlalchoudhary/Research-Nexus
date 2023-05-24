@@ -5,14 +5,16 @@ import { auth } from "./Config/firebaseConfig";
 
 // Layouts
 import RootLayout from "./Layouts/RootLayout";
+import Dashboard from "./Layouts/Dashboard/Dashboard";
 
 // Pages
 import Home from "./Pages/Home";
-import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
+import Login from "./Pages/Authentication/Login";
+import Signup from "./Pages/Authentication/Signup";
 import NotFound from "./Pages/NotFound";
-import ShowBlogs from "./Pages/ShowBlogs";
-import CreateBlogs from "./Pages/CreateBlogs";
+import DiscoverOpportunity from "./Components/Dashboard/DiscoverOpportunity";
+import PublishOpportunity from "./Components/Dashboard/PublishOpportunity";
+import DashboardHome from "./Components/Dashboard/DashboardHome";
 
 function App() {
   const [user, setUser] = useState(auth.currentUser);
@@ -21,21 +23,21 @@ function App() {
     try {
       await signOut(auth);
       setUser(auth.currentUser);
-      window.location.pathname = "/login";
+      window.location.pathname = "/";
     } catch (err) {
       console.log(err);
     }
   };
 
-  useEffect(()=>{
-    onAuthStateChanged(auth, (user => {
-      if (user){
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
         setUser(user);
-      }else{
+      } else {
         setUser(null);
       }
-    }))
-  },[])
+    });
+  }, []);
 
   return (
     <>
@@ -51,11 +53,22 @@ function App() {
               />
             }
           >
-            <Route index element={<Home />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/signup" element={<Signup />} />
-            <Route exact path="/showblogs" element={<ShowBlogs />} />
-            <Route exact path="/createblogs" element={<CreateBlogs />} />
+            <Route
+              index
+              element={<Home user={[user, setUser]} logout={logoutHandler} />}
+            />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
+          </Route>
+          <Route
+            path="/dashboard"
+            element={
+              <Dashboard user={[user, setUser]} logoutHandler={logoutHandler} />
+            }
+          >
+            <Route index element={<DashboardHome />} />
+            <Route path="discover" element={<DiscoverOpportunity />} />
+            <Route path="publish" element={<PublishOpportunity />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -65,3 +78,10 @@ function App() {
 }
 
 export default App;
+
+
+// import ShowBlogs from "./Pages/ShowBlogs";
+// import CreateBlogs from "./Pages/CreateBlogs";
+
+{/* <Route exact path="/showblogs" element={<ShowBlogs />} />
+<Route exact path="/createblogs" element={<CreateBlogs />} /> */}

@@ -1,0 +1,208 @@
+/* Importing fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+:root {
+    --primaryColor: #4c50d3;
+    --secondaryColor: #ffce00;
+    --fontColor: #1e1e1e;
+    --whiteColor: #fff;
+    --greyColor: #e7e7e7;
+    --darkGreyColor: #5f5f5f;
+    --softPurple: #e7e8ff;
+    --softBlue: #c3e1ff;
+    --softYellow: #fff5cc;
+    --softRed: #ffcbc8;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    background-color: var(--whiteColor);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 1em;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.column {
+    width: 100%;
+    padding: 0.5em 0;
+}
+
+.card {
+    box-shadow: 0 0 0em rgba(25, 0, 58, 0.1);
+    padding: 2.5em 1em;
+    border-radius: 1.5em;
+    color: #1f003b;
+    cursor: pointer;
+    transition: 0.34s;
+    background-color: var(--primaryColor);
+    margin-top: 2em;
+    margin-right: 1.5em;
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.card .imgContainer {
+    width: 8em;
+    height: 8em;
+    background-color: var(--whiteColor);
+    padding: 0.5em;
+    border-radius: 50%;
+    margin: 0 auto 2em auto;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.card h4 {
+    font-weight: 700;
+    color: var(--whiteColor);
+}
+
+.card p {
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0.5em 0 2em 0;
+    letter-spacing: 2px;
+    color: var(--whiteColor);
+}
+
+.icons {
+    width: 50%;
+    min-width: 180px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    color: var(--whiteColor);
+}
+
+.icons ion-icon {
+    font-size: 2rem;
+}
+
+.card a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.4em;
+}
+
+.card:hover {
+    background: var(--secondaryColor);
+}
+
+.card:hover .img-container {
+    transform: scale(1.15);
+}
+
+@media screen and (min-width: 576px) {
+    .column {
+        flex: 0 0 100%;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .card {
+        margin-top: 1rem;
+    }
+
+    .team {
+        margin-block: 50px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    section {
+        padding: 1em 7em;
+    }
+
+    .column {
+        flex: 0 0 50%;
+        width: 50%;
+        max-width: 325px;
+    }
+
+    .team {
+        margin-block: 100px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    section {
+        padding: 1em;
+    }
+
+    .card {
+        padding: 3em 1em;
+    }
+
+    .column {
+        flex: 0 0 50%;
+        width: 50%;
+        max-width: 400px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    section {
+        padding: 1em;
+    }
+
+    .card {
+        padding: 3em 2em;
+    }
+
+    .column {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding: 0 1em;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .column {
+        flex: 0 0 100%;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .card {
+        margin-top: 1rem;
+    }
+
+    .team {
+        margin-block: 50px;
+    }
+}
+
+.role{
+    margin: 1rem 0 2rem 0 !important;
+}
+
+
+.card h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    font-size: calc(1.275rem + 0.3vw);
+}
+
+@media (min-width: 1200px) {
+    .card h4 {
+        font-size: 1.5rem;
+    }
+}
