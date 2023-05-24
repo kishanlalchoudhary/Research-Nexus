@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./default.css";
 
 export default function Navbar(props) {
-  const [user, setUser] = props.user;
+  const user = props.user;
 
   return (
     <div className="navbar container-fluid">

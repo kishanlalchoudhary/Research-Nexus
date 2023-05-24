@@ -19,7 +19,7 @@ export default function Hero() {
           </Link>
         </div>
         <div class="header-right">
-          <img src={require("../../Images/7566.jpg")} alt="hero image" />
+          <img src={require("../../Images/7566.jpg")} alt="hero" />
         </div>
       </div>
     </header>

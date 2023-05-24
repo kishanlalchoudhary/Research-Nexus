@@ -14,7 +14,7 @@ export default function Signup(props) {
     password: "",
     role: "",
   });
-  const [user, setUser] = useOutletContext();
+  const user = useOutletContext();
   const [errorMsg, setErrorMsg] = useState("");
 
   const usersCollectionRef = collection(db, "users");

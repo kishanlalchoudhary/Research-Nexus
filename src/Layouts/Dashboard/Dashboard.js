@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import "./Dashboard.css";
 
 // Components
@@ -7,13 +7,13 @@ import Sidebar from "../../Components/Dashboard/Sidebar";
 import OpportunityDetail from "../../Components/Dashboard/OpportunityDetail";
 
 export default function Dashboard(props) {
-  const [user, setUser] = props.user;
+  const user = props.user;
   const [navToggle, setNavToggle] = useState(false);
 
   useEffect(() => {
     setNavToggle(false);
     console.log(`from useeffect ${navToggle}`);
-  }, []);
+  },[]);
 
   const navToggler = () => {
     setNavToggle(!navToggle);

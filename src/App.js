@@ -49,13 +49,13 @@ function App() {
             element={
               <RootLayout
                 logoutHandler={logoutHandler}
-                user={[user, setUser]}
+                user={user}
               />
             }
           >
             <Route
               index
-              element={<Home user={[user, setUser]} logout={logoutHandler} />}
+              element={<Home user={user} logout={logoutHandler} />}
             />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
@@ -63,7 +63,7 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <Dashboard user={[user, setUser]} logoutHandler={logoutHandler} />
+              <Dashboard user={user} logoutHandler={logoutHandler} />
             }
           >
             <Route index element={<DashboardHome />} />
@@ -78,10 +78,3 @@ function App() {
 }
 
 export default App;
-
-
-// import ShowBlogs from "./Pages/ShowBlogs";
-// import CreateBlogs from "./Pages/CreateBlogs";
-
-{/* <Route exact path="/showblogs" element={<ShowBlogs />} />
-<Route exact path="/createblogs" element={<CreateBlogs />} /> */}

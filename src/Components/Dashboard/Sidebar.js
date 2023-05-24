@@ -1,12 +1,11 @@
-import { Button } from "bootstrap";
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Sidebar(props) {
   return (
     <div className="sidebar">
       <h1 className="logo" onClick={props.navToggleHandler}>
-        <img src={require("../../Images/Research-Nexus-Logo-Final.png")} />
+        <img src={require("../../Images/Research-Nexus-Logo-Final.png")} alt="logo"/>
       </h1>
       <div className="menus">
         <NavLink to="/">

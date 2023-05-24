@@ -13,7 +13,7 @@ import style from "./authentication.module.css";
 export default function Login(props) {
   const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
   const [errorMsg, setErrorMsg] = useState("");
-  const [user, setUser] = useOutletContext();
+  const user = useOutletContext();
 
   const navigate = useNavigate();
 
