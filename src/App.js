@@ -46,29 +46,25 @@ function App() {
           <Route
             exact
             path="/"
-            element={
-              <RootLayout
-                logoutHandler={logoutHandler}
-                user={user}
-              />
-            }
+            element={<RootLayout logout={logoutHandler} user={user} />}
           >
-            <Route
-              index
-              element={<Home user={user} logout={logoutHandler} />}
-            />
+            <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
           </Route>
           <Route
             path="/dashboard"
-            element={
-              <Dashboard user={user} logoutHandler={logoutHandler} />
-            }
+            element={<Dashboard user={user} logoutHandler={logoutHandler} />}
           >
             <Route index element={<DashboardHome />} />
-            <Route path="discover" element={<DiscoverOpportunity />} />
-            <Route path="publish" element={<PublishOpportunity />} />
+            <Route
+              path="discover"
+              element={<DiscoverOpportunity user={user} />}
+            />
+            <Route
+              path="publish"
+              element={<PublishOpportunity user={user} />}
+            />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -3,13 +3,13 @@
 .contact-content input {
     background-color: #f5f8fa;
     border-color: #f5f8fa;
-    color: #5e6278;
+    color: #1e1e1e;
 }
 
 .contact-content textarea {
     background-color: #f5f8fa;
     border-color: #f5f8fa;
-    color: #5e6278;
+    color: #1e1e1e;
 }
 
 .contact-content input:focus {
@@ -45,20 +45,12 @@
     .about-image {
         height: 50vh;
     }
-
-    .c-img {
-        height: 140%;
-    }
 }
 
 @media (max-width: 768px) {
     .about-image {
         width: 80vw;
         height: 50vh;
-    }
-
-    .c-img {
-        height: 125%;
     }
 }
 

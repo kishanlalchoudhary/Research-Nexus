@@ -18,7 +18,7 @@ export default function Contact() {
       lastName,
       email,
       message,
-      id: auth.currentUser.uid,
+      userId: auth?.currentUser?.uid,
     });
     setFirstName("");
     setLastName("");
@@ -34,7 +34,7 @@ export default function Contact() {
             <div className="col-lg-5 col-12 about-image my-sm-3 my-2">
               <img
                 src={require("../../Images/contact-us.png")}
-                className="img-fluid c-img"
+                className="img-fluid"
                 alt=""
               />
             </div>

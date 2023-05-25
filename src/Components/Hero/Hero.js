@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Hero.css"
+import "./Hero.css";
 
-export default function Hero() {
+export default function Hero(props) {
+  const user = props.user;
 
   return (
     <header className="container-fluid">
@@ -12,11 +13,17 @@ export default function Hero() {
           <p>
             Join Research Nexus today and unlock a world of research internship
             opportunities that will shape your academic and professional
-            success.{" "}
+            success.
           </p>
-          <Link to="/dashboard/discover" class="primary-button get-started-button">
-            Get started
-          </Link>
+          {user !== null ? (
+            <Link to="/dashboard/discover" class="primary-button get-started-button">
+              Get started
+            </Link>
+          ) : (
+            <Link to="/dashboard" class="primary-button get-started-button">
+              Get started
+            </Link>
+          )}
         </div>
         <div class="header-right">
           <img src={require("../../Images/7566.jpg")} alt="hero" />

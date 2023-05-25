@@ -17,8 +17,11 @@
     background-color: var(--primaryColor);
     color: var(--whiteColor);
     text-align: center;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: large;
+    height: 10vh;
 }
 
 /* Navbar Css */
@@ -26,6 +29,8 @@
 .navbar {
     background-color: var(--primaryColor);
     justify-content: center;
+    align-items: center;
+    height: 15vh;
 }
 
 .navbar-body {

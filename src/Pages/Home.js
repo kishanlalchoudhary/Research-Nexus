@@ -6,18 +6,17 @@ import Team from "../Components/Team/Team";
 import Contact from "../Components/Contact/Contact";
 import About from "../Components/About/About";
 import Hero from "../Components/Hero/Hero";
-import Footer from "../Components/Default/Footer";
-import Navbar from "../Components/Default/Navbar";
+import { useOutletContext } from "react-router";
 
 export default function Home(props) {
+  const user = useOutletContext();
+
   return (
-    <div>
-      <Navbar user={props.user} logout={props.logout} />
-      <Hero />
+    <>
+      <Hero user={user} />
       <About />
       <Team />
       <Contact />
-      <Footer />
-    </div>
+    </>
   );
 }

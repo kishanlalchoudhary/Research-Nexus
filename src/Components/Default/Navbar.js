@@ -9,10 +9,12 @@ export default function Navbar(props) {
     <div className="navbar container-fluid">
       <div className="navbar-body container">
         <div className="nav-logo">
-          <img
-            src={require("../../Images/Research-Nexus-Logo-Final.png")}
-            alt=""
-          />
+          <Link to="/">
+            <img
+              src={require("../../Images/Research-Nexus-Logo-Final.png")}
+              alt=""
+            />
+          </Link>
         </div>
         {user == null ? (
           <Link className="nav-btn" to="/login">
