@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { Navigate, useOutletContext } from "react-router";
+import { Navigate, useNavigate, useOutletContext } from "react-router";
 import style from "./publish.module.css";
+import { collection, addDoc } from "firebase/firestore";
+import { auth, db, storage } from "../../Config/firebaseConfig";
+import { ref, uploadBytes } from "firebase/storage";
 
 export default function PublishOpportunity(props) {
   const navToggleHandler = useOutletContext();
@@ -18,8 +21,63 @@ export default function PublishOpportunity(props) {
     benefits: "",
     gForm: "",
   });
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const signupHandler = () => {};
+  const opportunitiesCollectionRef = collection(db, "opportunities");
+
+  const navigate = useNavigate();
+
+  const opportunitiesHandler = async (e) => {
+    e.preventDefault();
+    if (
+      !opportunityDetails.companyName ||
+      !opportunityDetails.companyLogo ||
+      !opportunityDetails.location ||
+      !opportunityDetails.vacancies ||
+      !opportunityDetails.aboutCompany ||
+      !opportunityDetails.jobDescription ||
+      !opportunityDetails.duration ||
+      !opportunityDetails.domain ||
+      !opportunityDetails.benefits ||
+      !opportunityDetails.gForm
+    ) {
+      setErrorMsg("Fill all fields");
+      return;
+    } else {
+      try {
+        await addDoc(opportunitiesCollectionRef, {
+          companyName: opportunityDetails.companyName,
+          location: opportunityDetails.location,
+          vacancies: opportunityDetails.vacancies,
+          aboutCompany: opportunityDetails.aboutCompany,
+          jobDescription: opportunityDetails.jobDescription,
+          duration: opportunityDetails.duration,
+          domain: opportunityDetails.domain,
+          benefits: opportunityDetails.benefits,
+          gForm: opportunityDetails.gForm,
+          userId: auth?.currentUser?.uid,
+        });
+        const filesFolderRef = ref(storage, `companyLogos/${opportunityDetails.companyLogo.name}`);
+        await uploadBytes(filesFolderRef, opportunityDetails.companyLogo);
+        setOpportunityDetails({
+          ...opportunityDetails,
+          companyName: "",
+          companyLogo: null,
+          location: "",
+          vacancies: 0,
+          aboutCompany: "",
+          jobDescription: "",
+          duration: "",
+          domain: "",
+          benefits: "",
+          gForm: "",
+        });
+        navigate("/dashboard/discover");
+      } catch (err) {
+        setErrorMsg(err);
+      }
+    }
+  };
 
   return (
     <>
@@ -32,6 +90,7 @@ export default function PublishOpportunity(props) {
           ></ion-icon>
           <div className={style.formBox}>
             <h1 id={style.title}>Publish Opportunities</h1>
+            <h3 className={style.error}>{errorMsg}</h3>
             <form>
               <div className={style.inputGroup}>
                 <div className={style.inputField}>
@@ -63,7 +122,7 @@ export default function PublishOpportunity(props) {
                     onChange={(e) =>
                       setOpportunityDetails((prev) => ({
                         ...prev,
-                        companyLogo: e.target.value,
+                        companyLogo: e.target.files[0],
                       }))
                     }
                   />
@@ -74,7 +133,7 @@ export default function PublishOpportunity(props) {
                     required
                     type="text"
                     name="location"
-                    value={opportunityDetails.email}
+                    value={opportunityDetails.location}
                     placeholder="Location..."
                     onChange={(e) =>
                       setOpportunityDetails((prev) => ({
@@ -90,7 +149,7 @@ export default function PublishOpportunity(props) {
                     required
                     type="number"
                     name="vacancies"
-                    value={opportunityDetails.password}
+                    value={opportunityDetails.vacancies}
                     placeholder="No of Vacancies..."
                     onChange={(e) =>
                       setOpportunityDetails((prev) => ({
@@ -106,6 +165,7 @@ export default function PublishOpportunity(props) {
                     required
                     type="text"
                     name="aboutCompany"
+                    value={opportunityDetails.aboutCompany}
                     placeholder="About Company..."
                     onChange={(e) =>
                       setOpportunityDetails((prev) => ({
@@ -121,6 +181,7 @@ export default function PublishOpportunity(props) {
                     required
                     type="text"
                     name="jobDescription"
+                    value={opportunityDetails.jobDescription}
                     placeholder="Job Description..."
                     onChange={(e) =>
                       setOpportunityDetails((prev) => ({
@@ -258,20 +319,24 @@ export default function PublishOpportunity(props) {
                   <input
                     type="text"
                     name="gForm"
-                    value={opportunityDetails.email}
+                    value={opportunityDetails.gForm}
                     placeholder="Goggle Form Link..."
                     onChange={(e) =>
                       setOpportunityDetails((prev) => ({
                         ...prev,
-                        email: e.target.value,
+                        gForm: e.target.value,
                       }))
                     }
                   />
                 </div>
               </div>
               <div className={style.btnField}>
-                <button type="button" id="signupbtn" onClick={signupHandler}>
-                  Sign Up
+                <button
+                  type="button"
+                  id="signupbtn"
+                  onClick={opportunitiesHandler}
+                >
+                  Publish
                 </button>
               </div>
             </form>

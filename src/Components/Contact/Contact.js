@@ -13,17 +13,23 @@ export default function Contact() {
   const contactsCollectionRef = collection(db, "contacts");
 
   const contacts = async () => {
-    await addDoc(contactsCollectionRef, {
-      firstName,
-      lastName,
-      email,
-      message,
-      userId: auth?.currentUser?.uid,
-    });
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setMessage("");
+    try {
+      await addDoc(contactsCollectionRef, {
+        firstName,
+        lastName,
+        email,
+        message,
+        userId: auth?.currentUser?.uid,
+      });
+      document.getElementById("contactError").innerHTML =
+        "Submitted Sucessfully";
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setMessage("");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -42,6 +48,11 @@ export default function Contact() {
               <h1 className="text-uppercase fw-bolder text-center fs-1 mb-4">
                 Contact Us
               </h1>
+              <div
+                id="contactError"
+                style={{ color: "green", fontWeight: "700" }}
+                className="flex justify-content-center align-item-center p-3 fs-4"
+              ></div>
               <div className="row contact-content m-sm-m m-2">
                 <div className="form-floating mb-3">
                   <input

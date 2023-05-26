@@ -18,8 +18,8 @@ export default function Sidebar(props) {
           id: doc.id,
         }))
         .filter((doc) => doc.userId === auth.currentUser.uid);
-      console.log(filteredData);
-      console.log(auth.currentUser.uid);
+      // console.log(filteredData);
+      // console.log(auth.currentUser.uid);
       setUserDetails(filteredData[0]);
     };
 

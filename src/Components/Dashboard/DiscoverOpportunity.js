@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Navigate, useOutletContext } from "react-router-dom";
+import { db, auth, storage } from "../../Config/firebaseConfig";
+import { getDocs, collection } from "firebase/firestore";
 
 export default function DiscoverOpportunity(props) {
   const user = props.user;
   const navToggleHandler = useOutletContext();
+  const [opportunityList, setOpportunityList] = useState([]);
+
+  const opportunitiesCollectionRef = collection(db, "opportunities");
+
+  const getOpportunityList = async () => {
+    try {
+      const data = await getDocs(opportunitiesCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setOpportunityList(filteredData);
+      console.log(filteredData);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getOpportunityList();
+  }, []);
 
   return (
     <>

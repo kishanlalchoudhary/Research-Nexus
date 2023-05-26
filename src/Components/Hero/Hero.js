@@ -7,8 +7,8 @@ export default function Hero(props) {
 
   return (
     <header className="container-fluid">
-      <div class="container header-section flex">
-        <div class="header-left">
+      <div className="container header-section flex">
+        <div className="header-left">
           <h1>Discover Your Research Potential</h1>
           <p>
             Join Research Nexus today and unlock a world of research internship
@@ -16,16 +16,19 @@ export default function Hero(props) {
             success.
           </p>
           {user !== null ? (
-            <Link to="/dashboard/discover" class="primary-button get-started-button">
+            <Link
+              to="/dashboard/discover"
+              className="primary-button get-started-button"
+            >
               Get started
             </Link>
           ) : (
-            <Link to="/dashboard" class="primary-button get-started-button">
+            <Link to="/dashboard" className="primary-button get-started-button">
               Get started
             </Link>
           )}
         </div>
-        <div class="header-right">
+        <div className="header-right">
           <img src={require("../../Images/7566.jpg")} alt="hero" />
         </div>
       </div>
