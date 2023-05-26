@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function DashboardHome() {
   return (
-    <div>DashboardHome</div>
+    <div>Login to continue</div>
   )
 }

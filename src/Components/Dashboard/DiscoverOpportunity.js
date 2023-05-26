@@ -17,6 +17,9 @@ export default function DiscoverOpportunity(props) {
         ...doc.data(),
         id: doc.id,
       }));
+      for(let i=0; i<2; i++){
+        filteredData.push(filteredData[0]);
+      }
       setOpportunityList(filteredData);
       console.log(filteredData);
     } catch (err) {
@@ -48,6 +51,7 @@ export default function DiscoverOpportunity(props) {
           <div className="filter-wrapper">
             <p>Recommendation</p>
             <div className="filter">
+              <button className="btn-filter active">AI/ML</button>
               <button className="btn-filter">Data Science</button>
               <button className="btn-filter">Data Engineer</button>
               <button className="btn-filter">Data Analyst</button>
@@ -72,7 +76,7 @@ export default function DiscoverOpportunity(props) {
               <button className="links" key={opportunity.userId}>
                 <div className="cardCss">
                   <div className="card-left blue-bg">
-                    <img src={require("../../Images/google.png")} alt="" />
+                    <img src={require("../../Images/drdo.png")} alt="" />
                   </div>
                   <div className="card-center">
                     <h3>{opportunity.companyName}</h3>

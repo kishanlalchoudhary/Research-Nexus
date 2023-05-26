@@ -235,6 +235,12 @@ body {
     cursor: pointer;
 }
 
+.btn-filter.active {
+    background-color: var(--primaryColor);
+    color: var(--whiteColor);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 .btn-filter:hover {
     background-color: var(--primaryColor);
     color: var(--whiteColor);
@@ -345,7 +351,7 @@ body {
     justify-content: space-between;
     align-items: start;
     text-align: left;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .card-tag {
@@ -360,7 +366,7 @@ body {
     font-size: 13px;
 }
 
-.card-right h5{
+.card-right h5 {
     font-size: small;
 }
 
@@ -372,7 +378,7 @@ body {
     color: var(--fontColor);
 }
 
-.card-salary p{
+.card-salary p {
     font-size: small;
     text-transform: capitalize;
     line-height: 1.5;
@@ -491,7 +497,7 @@ body {
     background-color: transparent;
 }
 
-.links{
+.links {
     color: var(--fontColor);
     border: none;
     background-color: transparent;
