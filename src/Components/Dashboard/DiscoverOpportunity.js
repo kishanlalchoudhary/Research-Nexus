@@ -68,142 +68,46 @@ export default function DiscoverOpportunity(props) {
         </div>
       </div> */}
           <div className="wrapper">
-            <div className="cardCss">
-              <div className="card-left blue-bg">
-                <img src={require("../../Images/google.png")} alt="" />
-              </div>
-              <div className="card-center">
-                <h3>Google</h3>
-                <p className="card-detail">Data Science, Data Engineer</p>
-                <p className="card-loc">
-                  <ion-icon name="location-outline"></ion-icon>Abcd street
-                </p>
-                <div className="card-sub">
-                  <p>
-                    <ion-icon name="today-outline"></ion-icon> 1 minutes ago
-                  </p>
-                  <p>
-                    <ion-icon name="hourglass-outline"></ion-icon> Full-time
-                  </p>
-                  <p>
-                    <ion-icon name="people-outline"></ion-icon> 200 Applicants
-                  </p>
+            {opportunityList.map((opportunity) => (
+              <button className="links" key={opportunity.userId}>
+                <div className="cardCss">
+                  <div className="card-left blue-bg">
+                    <img src={require("../../Images/google.png")} alt="" />
+                  </div>
+                  <div className="card-center">
+                    <h3>{opportunity.companyName}</h3>
+                    <p className="card-detail">{opportunity.domain}</p>
+                    <p className="card-loc">
+                      <ion-icon name="location-outline"></ion-icon>{" "}
+                      {opportunity.location}
+                    </p>
+                    <div className="card-sub">
+                      {/* <p>
+                      <ion-icon name="today-outline"></ion-icon> 1 minutes ago
+                    </p> */}
+                      <p>
+                        <ion-icon name="hourglass-outline"></ion-icon>
+                        {opportunity.duration}
+                      </p>
+                      <p>
+                        <ion-icon name="people-outline"></ion-icon>
+                        {opportunity.vacancies}Vacancies
+                      </p>
+                    </div>
+                  </div>
+                  <div className="card-right">
+                    <div className="card-tag">
+                      <h5>Apply Now</h5>
+                      <Link to={opportunity.gForm}>Goggle Form</Link>
+                    </div>
+                    <div className="card-salary">
+                      <h5>Benefits</h5>
+                      <p>{opportunity.benefits}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="card-right">
-                <div className="card-tag">
-                  <h5>Division</h5>
-                  <Link to="#">Data Engineer</Link>
-                </div>
-                <div className="card-salary">
-                  <p>
-                    <b>$350k</b> <span>/ years</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="cardCss">
-              <div className="card-left blue-bg">
-                <img src={require("../../Images/google.png")} alt="" />
-              </div>
-              <div className="card-center">
-                <h3>Google</h3>
-                <p className="card-detail">Data Science, Data Engineer</p>
-                <p className="card-loc">
-                  <ion-icon name="location-outline"></ion-icon>Abcd street
-                </p>
-                <div className="card-sub">
-                  <p>
-                    <ion-icon name="today-outline"></ion-icon> 1 minutes ago
-                  </p>
-                  <p>
-                    <ion-icon name="hourglass-outline"></ion-icon> Full-time
-                  </p>
-                  <p>
-                    <ion-icon name="people-outline"></ion-icon> 200 Applicants
-                  </p>
-                </div>
-              </div>
-              <div className="card-right">
-                <div className="card-tag">
-                  <h5>Division</h5>
-                  <Link to="#">Data Engineer</Link>
-                </div>
-                <div className="card-salary">
-                  <p>
-                    <b>$350k</b> <span>/ years</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="cardCss">
-              <div className="card-left blue-bg">
-                <img src={require("../../Images/google.png")} alt="" />
-              </div>
-              <div className="card-center">
-                <h3>Google</h3>
-                <p className="card-detail">Data Science, Data Engineer</p>
-                <p className="card-loc">
-                  <ion-icon name="location-outline"></ion-icon>Abcd street
-                </p>
-                <div className="card-sub">
-                  <p>
-                    <ion-icon name="today-outline"></ion-icon> 1 minutes ago
-                  </p>
-                  <p>
-                    <ion-icon name="hourglass-outline"></ion-icon> Full-time
-                  </p>
-                  <p>
-                    <ion-icon name="people-outline"></ion-icon> 200 Applicants
-                  </p>
-                </div>
-              </div>
-              <div className="card-right">
-                <div className="card-tag">
-                  <h5>Division</h5>
-                  <Link to="#">Data Engineer</Link>
-                </div>
-                <div className="card-salary">
-                  <p>
-                    <b>$350k</b> <span>/ years</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="cardCss">
-              <div className="card-left blue-bg">
-                <img src={require("../../Images/google.png")} alt="" />
-              </div>
-              <div className="card-center">
-                <h3>Google</h3>
-                <p className="card-detail">Data Science, Data Engineer</p>
-                <p className="card-loc">
-                  <ion-icon name="location-outline"></ion-icon>Abcd street
-                </p>
-                <div className="card-sub">
-                  <p>
-                    <ion-icon name="today-outline"></ion-icon> 1 minutes ago
-                  </p>
-                  <p>
-                    <ion-icon name="hourglass-outline"></ion-icon> Full-time
-                  </p>
-                  <p>
-                    <ion-icon name="people-outline"></ion-icon> 200 Applicants
-                  </p>
-                </div>
-              </div>
-              <div className="card-right">
-                <div className="card-tag">
-                  <h5>Division</h5>
-                  <Link to="#">Data Engineer</Link>
-                </div>
-                <div className="card-salary">
-                  <p>
-                    <b>$350k</b> <span>/ years</span>
-                  </p>
-                </div>
-              </div>
-            </div>
+              </button>
+            ))}
           </div>
         </div>
       ) : (
